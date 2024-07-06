@@ -18,12 +18,16 @@ namespace HospitalWindowsForms
     {
         Boolean Medico;
         Boolean PersonalAdminstrativo;
+        Boolean FiltarPacientes;
+        Boolean EliminarPacientes;
         Hospital hospital;
 
-        public Form2(Boolean Medico, Boolean PersonalAdminstrativo, Hospital hospital)
+        public Form2(Boolean Medico, Boolean PersonalAdminstrativo, Boolean FiltarPacientes, Boolean EliminarPacientes, Hospital hospital)
         {
             this.Medico = Medico;
             this.PersonalAdminstrativo = PersonalAdminstrativo;
+            this.FiltarPacientes = FiltarPacientes;
+            this.EliminarPacientes=EliminarPacientes;
             this.hospital = hospital;
             InitializeComponent();
         }
@@ -61,6 +65,7 @@ namespace HospitalWindowsForms
 
                 Paciente paciente = new Paciente(textBoxNombre.Text, textBoxDni.Text, textBoxTelefono.Text, medicoExistente, textBoxSintomas.Text);
                 hospital.Pacientes.Add(paciente);
+                medicoExistente.Paciente.Add(paciente); 
                 MessageBox.Show("Paciente Creado Correctamente\n" + paciente.ToString());
             }
             else
@@ -89,9 +94,43 @@ namespace HospitalWindowsForms
             return true;
         }
 
+        private void butBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxNombreMedico.Text))
+            {
+                MessageBox.Show($"El campo de texto '{textBoxNombreMedico.Name.Substring(7)}' está vacío o contiene solo espacios en blanco.");
+                return;
+            }
+
+            Medico medicoExistente = hospital.Medicos.FirstOrDefault(m => m.Nombre.Equals(textBoxNombreMedico.Text, StringComparison.Ordinal));
+
+            if (medicoExistente == null)
+            {
+                MessageBox.Show("El médico introducido no existe.");
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var item in medicoExistente.Paciente)
+            {
+                sb.AppendLine(item.ToString());
+            }
+
+            MessageBox.Show(sb.ToString());
+
+            Close();
+
+        }
+
+        private void butEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (Medico == true && PersonalAdminstrativo == false)
+            if (Medico == true && PersonalAdminstrativo == false && FiltarPacientes == false && EliminarPacientes == false)
             {
                 this.labelAltaPaciente.Visible = false;
                 this.labelAltaPersonalAdministrativo.Visible = false;
@@ -99,8 +138,14 @@ namespace HospitalWindowsForms
                 this.labelSintomas.Visible = false;
                 this.textBoxMedico.Visible = false;
                 this.textBoxSintomas.Visible = false;
+                this.labelEliminarPaciente.Visible = false;
+                this.labelNombreMedico.Visible = false;
+                this.labelBuscarPacientes.Visible = false;
+                this.textBoxNombreMedico.Visible = false;
+                this.butEliminar.Visible = false;
+                this.butBuscar.Visible = false;
             }
-            else if(Medico == false && PersonalAdminstrativo == false) 
+            else if(Medico == false && PersonalAdminstrativo == false && FiltarPacientes == false && EliminarPacientes == false) 
             {
                 this.labelAltaMedico.Visible = false;
                 this.labelAltaPersonalAdministrativo.Visible = false;
@@ -108,6 +153,76 @@ namespace HospitalWindowsForms
                 this.labelRango.Visible = false;
                 this.textBoxEspecialidad.Visible = false;
                 this.textBoxRango.Visible = false;
+                this.labelEliminarPaciente.Visible = false;
+                this.labelNombreMedico.Visible = false;
+                this.labelBuscarPacientes.Visible = false;
+                this.textBoxNombreMedico.Visible = false;
+                this.butEliminar.Visible = false;
+                this.butBuscar.Visible = false;
+            }
+            else if(Medico == false && PersonalAdminstrativo == false && FiltarPacientes == true && EliminarPacientes == false)
+            {
+
+                this.labelAltaMedico.Visible = false;
+                this.labelAltaPersonalAdministrativo.Visible = false;
+                this.labelEspecialidad.Visible = false;
+                this.labelRango.Visible = false;
+                this.textBoxEspecialidad.Visible = false;
+                this.textBoxRango.Visible = false;
+                this.labelEspecialidad.Visible = false;
+                this.labelRango.Visible = false;
+                this.textBoxEspecialidad.Visible = false;
+                this.textBoxRango.Visible = false;
+                this.labelMedico.Visible = false;
+                this.labelSintomas.Visible = false;
+                this.textBoxMedico.Visible = false;
+                this.textBoxSintomas.Visible = false;
+                this.labelAltaPaciente.Visible = false;
+                this.labelAltaPersonalAdministrativo.Visible = false;
+                this.labelMedico.Visible = false;
+                this.labelSintomas.Visible = false;
+                this.textBoxMedico.Visible = false;
+                this.textBoxSintomas.Visible = false;
+                this.labelDni.Visible = false;
+                this.textBoxDni.Visible = false;
+                this.labelTelefono.Visible = false;
+                this.textBoxTelefono.Visible = false;
+                this.butCrear.Visible = false;
+                this.butEliminar.Visible = false;
+                this.labelEliminarPaciente.Visible = false;
+                this.textBoxNombre.Visible = false;
+
+            }
+            else if(Medico == false && PersonalAdminstrativo == false && FiltarPacientes == false && EliminarPacientes == true)
+            {
+                this.labelAltaMedico.Visible = false;
+                this.labelAltaPersonalAdministrativo.Visible = false;
+                this.labelEspecialidad.Visible = false;
+                this.labelRango.Visible = false;
+                this.textBoxEspecialidad.Visible = false;
+                this.textBoxRango.Visible = false;
+                this.labelEspecialidad.Visible = false;
+                this.labelRango.Visible = false;
+                this.textBoxEspecialidad.Visible = false;
+                this.textBoxRango.Visible = false;
+                this.labelMedico.Visible = false;
+                this.labelSintomas.Visible = false;
+                this.textBoxMedico.Visible = false;
+                this.textBoxSintomas.Visible = false;
+                this.labelAltaPaciente.Visible = false;
+                this.labelAltaPersonalAdministrativo.Visible = false;
+                this.labelMedico.Visible = false;
+                this.labelSintomas.Visible = false;
+                this.textBoxMedico.Visible = false;
+                this.textBoxSintomas.Visible = false;
+                this.labelDni.Visible = false;
+                this.textBoxDni.Visible = false;
+                this.labelTelefono.Visible = false;
+                this.textBoxTelefono.Visible = false;
+                this.butCrear.Visible = false;
+                this.butBuscar.Visible = false;
+                this.labelBuscarPacientes.Visible = false;
+                this.textBoxNombreMedico.Visible = false;
             }
             else
             {
@@ -119,9 +234,17 @@ namespace HospitalWindowsForms
                 this.labelSintomas.Visible = false;
                 this.textBoxMedico.Visible = false;
                 this.textBoxSintomas.Visible = false;
+                this.labelEliminarPaciente.Visible=false;
+                this.labelNombreMedico.Visible = false;
+                this.labelBuscarPacientes.Visible = false;
+                this.textBoxNombreMedico.Visible= false;
+                this.butEliminar.Visible= false;
+                this.butBuscar.Visible = false;
             }
 
             
         }
+
+       
     }
 }

@@ -47,6 +47,12 @@
             this.textBoxSintomas = new System.Windows.Forms.TextBox();
             this.labelAltaPaciente = new System.Windows.Forms.Label();
             this.labelAltaPersonalAdministrativo = new System.Windows.Forms.Label();
+            this.butEliminar = new System.Windows.Forms.Button();
+            this.labelEliminarPaciente = new System.Windows.Forms.Label();
+            this.butBuscar = new System.Windows.Forms.Button();
+            this.labelBuscarPacientes = new System.Windows.Forms.Label();
+            this.labelNombreMedico = new System.Windows.Forms.Label();
+            this.textBoxNombreMedico = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelAltaMedico
@@ -209,17 +215,78 @@
             // labelAltaPersonalAdministrativo
             // 
             this.labelAltaPersonalAdministrativo.AutoSize = true;
-            this.labelAltaPersonalAdministrativo.Location = new System.Drawing.Point(336, 50);
+            this.labelAltaPersonalAdministrativo.Location = new System.Drawing.Point(304, 51);
             this.labelAltaPersonalAdministrativo.Name = "labelAltaPersonalAdministrativo";
             this.labelAltaPersonalAdministrativo.Size = new System.Drawing.Size(174, 16);
             this.labelAltaPersonalAdministrativo.TabIndex = 18;
             this.labelAltaPersonalAdministrativo.Text = "Alta Personal Administrativo";
+            // 
+            // butEliminar
+            // 
+            this.butEliminar.Location = new System.Drawing.Point(599, 379);
+            this.butEliminar.Name = "butEliminar";
+            this.butEliminar.Size = new System.Drawing.Size(75, 23);
+            this.butEliminar.TabIndex = 19;
+            this.butEliminar.Text = "Eliminar";
+            this.butEliminar.UseVisualStyleBackColor = true;
+            this.butEliminar.Click += new System.EventHandler(this.butEliminar_Click);
+            // 
+            // labelEliminarPaciente
+            // 
+            this.labelEliminarPaciente.AutoSize = true;
+            this.labelEliminarPaciente.Location = new System.Drawing.Point(347, 51);
+            this.labelEliminarPaciente.Name = "labelEliminarPaciente";
+            this.labelEliminarPaciente.Size = new System.Drawing.Size(111, 16);
+            this.labelEliminarPaciente.TabIndex = 20;
+            this.labelEliminarPaciente.Text = "Eliminar Paciente";
+            // 
+            // butBuscar
+            // 
+            this.butBuscar.Location = new System.Drawing.Point(599, 379);
+            this.butBuscar.Name = "butBuscar";
+            this.butBuscar.Size = new System.Drawing.Size(75, 23);
+            this.butBuscar.TabIndex = 21;
+            this.butBuscar.Text = "Buscar";
+            this.butBuscar.UseVisualStyleBackColor = true;
+            this.butBuscar.Click += new System.EventHandler(this.butBuscar_Click);
+            // 
+            // labelBuscarPacientes
+            // 
+            this.labelBuscarPacientes.AutoSize = true;
+            this.labelBuscarPacientes.Location = new System.Drawing.Point(336, 51);
+            this.labelBuscarPacientes.Name = "labelBuscarPacientes";
+            this.labelBuscarPacientes.Size = new System.Drawing.Size(112, 16);
+            this.labelBuscarPacientes.TabIndex = 22;
+            this.labelBuscarPacientes.Text = "Buscar Pacientes";
+            // 
+            // labelNombreMedico
+            // 
+            this.labelNombreMedico.AutoSize = true;
+            this.labelNombreMedico.Location = new System.Drawing.Point(84, 108);
+            this.labelNombreMedico.Name = "labelNombreMedico";
+            this.labelNombreMedico.Size = new System.Drawing.Size(104, 16);
+            this.labelNombreMedico.TabIndex = 23;
+            this.labelNombreMedico.Text = "NombreMedico:";
+            // 
+            // textBoxNombreMedico
+            // 
+            this.textBoxNombreMedico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxNombreMedico.Location = new System.Drawing.Point(192, 106);
+            this.textBoxNombreMedico.Name = "textBoxNombreMedico";
+            this.textBoxNombreMedico.Size = new System.Drawing.Size(252, 22);
+            this.textBoxNombreMedico.TabIndex = 24;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 469);
+            this.Controls.Add(this.textBoxNombreMedico);
+            this.Controls.Add(this.labelNombreMedico);
+            this.Controls.Add(this.labelBuscarPacientes);
+            this.Controls.Add(this.butBuscar);
+            this.Controls.Add(this.labelEliminarPaciente);
+            this.Controls.Add(this.butEliminar);
             this.Controls.Add(this.labelAltaPersonalAdministrativo);
             this.Controls.Add(this.labelAltaPaciente);
             this.Controls.Add(this.textBoxSintomas);
@@ -268,5 +335,11 @@
         private System.Windows.Forms.TextBox textBoxSintomas;
         private System.Windows.Forms.Label labelAltaPaciente;
         private System.Windows.Forms.Label labelAltaPersonalAdministrativo;
+        private System.Windows.Forms.Button butEliminar;
+        private System.Windows.Forms.Label labelEliminarPaciente;
+        private System.Windows.Forms.Button butBuscar;
+        private System.Windows.Forms.Label labelBuscarPacientes;
+        private System.Windows.Forms.Label labelNombreMedico;
+        private System.Windows.Forms.TextBox textBoxNombreMedico;
     }
 }

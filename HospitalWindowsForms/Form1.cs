@@ -22,19 +22,19 @@ namespace HospitalWindowsForms
 
         private void butAltaMedico_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2(true, false, hospital);
+            Form2 f = new Form2(true, false, false, false, hospital);
             f.ShowDialog();
         }
 
         private void butAltaPaciente_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2(false, false, hospital);
+            Form2 f = new Form2(false, false, false, false, hospital);
             f.ShowDialog();
         }
 
         private void butAltaPersonalAdministrativo_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2(false, true, hospital);
+            Form2 f = new Form2(false, true, false, false, hospital);
             f.ShowDialog();
         }
 
@@ -46,12 +46,20 @@ namespace HospitalWindowsForms
 
         private void butListarPacientes_Click(object sender, EventArgs e)
         {
+            Form2 f = new Form2(false, false, true, false, hospital);
+            f.ShowDialog();
+        }
 
+        private void butEliminarPaciente_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2(false, false, false, true, hospital);
+            f.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(hospital.ListarGenteHospital());
         }
+
     }
 }

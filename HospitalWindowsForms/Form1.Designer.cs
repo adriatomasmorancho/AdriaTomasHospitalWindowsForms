@@ -115,6 +115,7 @@
             this.butEliminarPaciente.TabIndex = 7;
             this.butEliminarPaciente.Text = "Eliminar un paciente";
             this.butEliminarPaciente.UseVisualStyleBackColor = true;
+            this.butEliminarPaciente.Click += new System.EventHandler(this.butEliminarPaciente_Click);
             // 
             // button1
             // 
