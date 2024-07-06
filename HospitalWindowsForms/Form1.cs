@@ -56,10 +56,9 @@ namespace HospitalWindowsForms
             f.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void butListarHospital_Click(object sender, EventArgs e)
         {
             MessageBox.Show(hospital.ListarGenteHospital());
         }
-
     }
 }

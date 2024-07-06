@@ -36,7 +36,7 @@
             this.butListarMedicos = new System.Windows.Forms.Button();
             this.butListarPacientes = new System.Windows.Forms.Button();
             this.butEliminarPaciente = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butListarHospital = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MenuHospitalLabel
@@ -117,22 +117,22 @@
             this.butEliminarPaciente.UseVisualStyleBackColor = true;
             this.butEliminarPaciente.Click += new System.EventHandler(this.butEliminarPaciente_Click);
             // 
-            // button1
+            // butListarHospital
             // 
-            this.button1.Location = new System.Drawing.Point(235, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(318, 68);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Listar todas las personas que hay en el hospital";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.butListarHospital.Location = new System.Drawing.Point(235, 409);
+            this.butListarHospital.Name = "butListarHospital";
+            this.butListarHospital.Size = new System.Drawing.Size(318, 68);
+            this.butListarHospital.TabIndex = 8;
+            this.butListarHospital.Text = "Listar todas las personas que hay en el hospital";
+            this.butListarHospital.UseVisualStyleBackColor = true;
+            this.butListarHospital.Click += new System.EventHandler(this.butListarHospital_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 616);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.butListarHospital);
             this.Controls.Add(this.butEliminarPaciente);
             this.Controls.Add(this.butListarPacientes);
             this.Controls.Add(this.butListarMedicos);
@@ -158,7 +158,7 @@
         private System.Windows.Forms.Button butListarMedicos;
         private System.Windows.Forms.Button butListarPacientes;
         private System.Windows.Forms.Button butEliminarPaciente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butListarHospital;
     }
 }
 
