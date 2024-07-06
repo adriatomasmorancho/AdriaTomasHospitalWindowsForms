@@ -125,6 +125,30 @@ namespace HospitalWindowsForms
 
         private void butEliminar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                MessageBox.Show($"El campo de texto '{textBoxNombre.Name.Substring(7)}' está vacío o contiene solo espacios en blanco.");
+                return;
+            }
+
+            Paciente comprovacionPacienteExistente = hospital.Pacientes.Find(m => m.Nombre.Equals(textBoxNombre.Text, StringComparison.Ordinal));
+
+            if (comprovacionPacienteExistente == null)
+            {
+                MessageBox.Show("El paciente introducido no existe.");
+                return;
+            }
+
+            hospital.Pacientes.Remove(comprovacionPacienteExistente);
+
+            foreach (var item in hospital.Medicos)
+            {
+                item.Paciente.Remove(comprovacionPacienteExistente);
+            }
+
+            MessageBox.Show("Paciente " + textBoxNombre.Text + " eliminado correctamente");
+
+            Close();
 
         }
 
@@ -223,6 +247,7 @@ namespace HospitalWindowsForms
                 this.butBuscar.Visible = false;
                 this.labelBuscarPacientes.Visible = false;
                 this.textBoxNombreMedico.Visible = false;
+                this.labelNombreMedico.Visible=false;
             }
             else
             {
