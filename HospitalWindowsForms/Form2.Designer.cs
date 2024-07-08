@@ -139,7 +139,7 @@
             this.labelRango.Name = "labelRango";
             this.labelRango.Size = new System.Drawing.Size(48, 16);
             this.labelRango.TabIndex = 9;
-            this.labelRango.Text = "Rango";
+            this.labelRango.Text = "Rango:";
             // 
             // textBoxRango
             // 
@@ -176,7 +176,7 @@
             this.labelMedico.Name = "labelMedico";
             this.labelMedico.Size = new System.Drawing.Size(52, 16);
             this.labelMedico.TabIndex = 13;
-            this.labelMedico.Text = "Medico";
+            this.labelMedico.Text = "Medico:";
             // 
             // textBoxMedico
             // 
@@ -193,7 +193,7 @@
             this.labelSintomas.Name = "labelSintomas";
             this.labelSintomas.Size = new System.Drawing.Size(63, 16);
             this.labelSintomas.TabIndex = 15;
-            this.labelSintomas.Text = "Sintomas";
+            this.labelSintomas.Text = "Sintomas:";
             // 
             // textBoxSintomas
             // 

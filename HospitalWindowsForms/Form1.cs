@@ -40,6 +40,9 @@ namespace HospitalWindowsForms
 
         private void butListarMedicos_Click(object sender, EventArgs e)
         {
+            if(hospital.ListarMedicos() == "")
+                MessageBox.Show("No existe ningun medico");
+            else
             MessageBox.Show(hospital.ListarMedicos());
                  
         }

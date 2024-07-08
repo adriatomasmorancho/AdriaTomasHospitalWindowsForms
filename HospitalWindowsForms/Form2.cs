@@ -110,6 +110,12 @@ namespace HospitalWindowsForms
                 return;
             }
 
+            if (medicoExistente.Paciente.Count == 0)
+            {
+                MessageBox.Show("El médico " + medicoExistente.Nombre + " de momento no tiene ningun paciente");
+                return;
+            }
+            
             StringBuilder sb = new StringBuilder();
 
             foreach (var item in medicoExistente.Paciente)
